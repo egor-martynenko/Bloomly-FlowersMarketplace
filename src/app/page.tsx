@@ -1,7 +1,7 @@
+import {MainPage} from "@/shared/pages/Main/MainPage";
 
 export default function HomePage() {
   return (
-    <div className="p-8">
-    </div>
+    <MainPage/>
   );
 }

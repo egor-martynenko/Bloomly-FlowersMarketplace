@@ -6,7 +6,7 @@ import {Logo} from "@/components/Logo/Logo";
 
 export const Header = () => {
   return (
-    <div className="w-full fixed top-0 left-0 right-0 py-2">
+    <div className="w-full fixed top-0 left-0 right-0 py-2 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <Logo/>
       <div className="flex items-center justify-between gap-2">
