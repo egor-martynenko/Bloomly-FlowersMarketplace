@@ -1,9 +1,17 @@
 import { Link} from "@heroui/react";
-import database from "../../../../../../migrations/flowersDatabase.json";
 import {ProductCard} from "@/components/ProductCard/ProductCard";
+import {ProductCardProps} from "@/types/product";
 
 
-export const Actions = () => {
+export async  function Actions (){
+  let flowers: ProductCardProps[] = []
+  try{
+    const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL!}/api/flowers`);
+    flowers = await result.json();
+  }catch (err){
+    console.error(err);
+  }
+
   return (
     <div className="container mx-auto mt-10">
 
@@ -23,7 +31,7 @@ export const Actions = () => {
 
       <div className="grid grid-cols-4 gap-4 mt-4">
         {
-          database.products.slice(0,4).map((product) => (
+          flowers.slice(0,4).map((product) => (
             <ProductCard key={product.id} {...product} />
           ))
         }
@@ -32,4 +40,4 @@ export const Actions = () => {
 
     </div>
   );
-};
+}
